@@ -1,7 +1,8 @@
 import React from 'react'
 import Card from './Card'
+import { connect } from 'react-redux'
 
-export default props => {
+const Sorteio = props => {
 
     const { min, max } = props
 
@@ -20,3 +21,13 @@ export default props => {
         </Card>
     )
 }
+
+const mapStateToProps = state => {
+    return {
+        min: state.numeros.min,
+        max: state.numeros.max
+    }
+}
+
+// connect is a function "()" that returns another function "()()"
+export default connect(mapStateToProps)(Sorteio)
